@@ -1,0 +1,43 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  frontmatter: {
+    title: string;
+    description: string;
+    published: string;
+    category: string;
+    tags?: string[];
+    draft?: boolean;
+  };
+}
+
+const { frontmatter } = Astro.props;
+const published = new Intl.DateTimeFormat('en', {
+  dateStyle: 'long',
+  timeZone: 'UTC',
+}).format(new Date(`${frontmatter.published}T00:00:00Z`));
+---
+
+<BaseLayout title={`${frontmatter.title} — Thanh Pham`} description={frontmatter.description}>
+  <main class="wrap article-shell">
+    <article class="article">
+      <header class="article-header">
+        <a class="back-link" href="/writing/">← All writing</a>
+        <div class="eyebrow">{frontmatter.category} · {published}</div>
+        <h1>{frontmatter.title}</h1>
+        <p class="article-description">{frontmatter.description}</p>
+        {
+          frontmatter.tags && (
+            <div class="tags" aria-label="Article tags">
+              {frontmatter.tags.map((tag) => <span class="tag">{tag}</span>)}
+            </div>
+          )
+        }
+      </header>
+      <div class="article-body">
+        <slot />
+      </div>
+    </article>
+  </main>
+</BaseLayout>

@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = 'Writing — Thanh Pham';
+const description = 'Technical writing on vulnerability research, application security, DFIR, and trust boundaries.';
+---
+
+<BaseLayout {title} {description}>
+  <main class="wrap page-shell">
+    <header class="page-header">
+      <div class="eyebrow"><span class="n">//</span> Writing</div>
+      <h1>Technical notes and security research.</h1>
+      <p>
+        Source-backed analysis, controlled reproductions, explicit limitations, and practical hardening options.
+      </p>
+    </header>
+
+    <section class="writing-list" aria-labelledby="published-writing">
+      <h2 id="published-writing">Published</h2>
+      <a class="writing-card" href="/writing/keepassxc-exec-cmd/">
+        <div class="writing-meta">Security Research · 2026-08-30</div>
+        <h3>Command Approval Stored Inside a KeePassXC Database: Understanding <code>_EXEC_CMD</code></h3>
+        <p>
+          How KeePassXC persists <code>cmd://</code> execution approval inside KDBX files, the resulting trust boundary,
+          and the limitations that determine whether the behavior is security-relevant.
+        </p>
+        <span class="writing-link">Read article →</span>
+      </a>
+    </section>
+  </main>
+</BaseLayout>

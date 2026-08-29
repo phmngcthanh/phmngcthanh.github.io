@@ -1,12 +1,17 @@
+---
+const sectionHref = (id: string) => (Astro.url.pathname === '/' ? `#${id}` : `/#${id}`);
+---
+
 <header class="nav">
   <div class="wrap">
     <span class="brand">thanh_pham<span class="dot">.</span>sec</span>
     <nav class="links" aria-label="Primary navigation">
-      <a href="#services">Services</a>{' '}
-      <a href="#work">Work</a>{' '}
-      <a href="#research">Research</a>{' '}
-      <a href="#credentials">Credentials</a>{' '}
-      <a href="#contact">Contact</a>
+      <a href={sectionHref('services')}>Services</a>{' '}
+      <a href={sectionHref('work')}>Work</a>{' '}
+      <a href={sectionHref('research')}>Research</a>{' '}
+      <a href="/writing/">Writing</a>{' '}
+      <a href={sectionHref('credentials')}>Credentials</a>{' '}
+      <a href={sectionHref('contact')}>Contact</a>
     </nav>
   </div>
 </header>
