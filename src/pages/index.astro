@@ -1,0 +1,309 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Thanh Pham — Offensive Security · DFIR · ISO 27001';
+const description =
+  'Authorized penetration testing, malware reverse engineering & DFIR, and ISO/IEC 27001 readiness. 6+ years across enterprise, financial, and critical-infrastructure systems.';
+---
+
+<BaseLayout {title} {description}>
+  <div class="wrap">
+    <section class="hero" style="border-top:none">
+      <div class="role">Offensive Security · DFIR &amp; Malware RE · ISO/IEC 27001</div>
+      <h1>Find the weakness before an attacker does.</h1>
+      <p class="lead">
+        I help organizations test, defend, and harden their systems — through authorized penetration testing and red
+        teaming, malware reverse engineering and incident response, and ISO/IEC 27001 readiness. 6+ years across
+        enterprise, financial, and critical-infrastructure systems.
+      </p>
+      <a class="cta" href="#contact">Start a conversation →</a>
+      <div class="badges">
+        <span class="badge"><b>OSCP</b></span>
+        <span class="badge"><b>CRTO</b> · Red Team Operator</span>
+        <span class="badge"><b>PECB</b> ISO/IEC 27001 Auditor</span>
+        <span class="badge"><b>Black Hat Asia 2025</b> Scholarship</span>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="eyebrow"><span class="n">// 01 ·</span> Services</div>
+      <h2>Three disciplines, one practitioner.</h2>
+      <p class="section-intro">
+        Most teams have to hire separately for attack, defense, and compliance. I bring all three — so findings connect
+        end to end.
+      </p>
+      <div class="grid3">
+        <div class="card svc">
+          <div class="ic">[ offense ]</div>
+          <h3>Offensive Security &amp; Red Team</h3>
+          <p>
+            Authorized penetration testing and adversarial simulation across the full development lifecycle —
+            development, staging, and production. Web, API, network, cloud, and Active Directory; realistic attack chains
+            that prove real business impact, with clear, prioritized remediation.
+          </p>
+        </div>
+        <div class="card svc">
+          <div class="ic">[ defense ]</div>
+          <h3>DFIR &amp; Malware Reverse Engineering</h3>
+          <p>
+            When something's wrong: incident response, digital forensics, and malware reverse engineering. I reconstruct
+            the attack, recover indicators and C2, scope what was exposed, and get you clean — across Windows, .NET, and
+            Android.
+          </p>
+        </div>
+        <div class="card svc">
+          <div class="ic">[ architecture ]</div>
+          <h3>Security Architecture &amp; ISO 27001</h3>
+          <p>
+            Secure-by-design review of your architecture and components — including AI/LLM (RAG) systems — plus ISO/IEC
+            27001 readiness: ISMS design, documentation, and independent (non-certification) internal audit to get you
+            audit-ready.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="eyebrow"><span class="n">// 02 ·</span> Selected Work</div>
+      <h2>Engagements, abstracted.</h2>
+      <p class="section-intro">
+        Real work, sanitized for confidentiality. Client identities are abstracted and sensitive indicators withheld —
+        details available under NDA.
+      </p>
+      <div class="cases">
+        <div class="case">
+          <h3><span class="idx">01</span> Red team to domain dominance</h3>
+          <div class="row">
+            <span class="k">Situation</span><span class="v"
+              >A full-scope red-team engagement against a large enterprise's external and internal estate.</span
+            >
+          </div>
+          <div class="row">
+            <span class="k">Work</span><span class="v"
+              >Built an OSINT credential pipeline, exploited internet-facing services, and moved laterally via MSSQL,
+              Redis, SMB, and backup infrastructure while evading multiple commercial EDR/AV — reaching hypervisor and
+              out-of-band management.</span
+            >
+          </div>
+          <div class="row">
+            <span class="k">Outcome</span><span class="v"
+              >Demonstrated control of ~200 domain controllers and servers, with a prioritized roadmap to break the
+              critical attack paths.</span
+            >
+          </div>
+          <div class="tags">
+            <span class="tag">Red Team</span><span class="tag">Active Directory</span><span class="tag">EDR evasion</span
+            ><span class="tag">Lateral movement</span>
+          </div>
+        </div>
+
+        <div class="case">
+          <h3><span class="idx">02</span> Fintech platform: secure &amp; scale</h3>
+          <div class="row">
+            <span class="k">Situation</span><span class="v"
+              >A high-throughput fintech platform (regulated eKYC, real-time financial events) safeguarding &gt;8,000
+              billion VND.</span
+            >
+          </div>
+          <div class="row">
+            <span class="k">Work</span><span class="v"
+              >Grey-box testing surfaced unrestricted file upload/download, SQL injection, IDOR in customer onboarding,
+              and authentication bypass — paired with security-architecture recommendations.</span
+            >
+          </div>
+          <div class="row">
+            <span class="k">Outcome</span><span class="v"
+              >Critical flaws remediated and an architecture that scaled ~10× (to ~80,000 concurrent users/s).</span
+            >
+          </div>
+          <div class="tags">
+            <span class="tag">Web / API</span><span class="tag">Architecture</span><span class="tag">Fintech</span><span
+              class="tag">eKYC</span
+            >
+          </div>
+        </div>
+
+        <div class="case">
+          <h3><span class="idx">03</span> AI/LLM system: architecture review</h3>
+          <div class="row">
+            <span class="k">Situation</span><span class="v"
+              >An internal platform handling confidential documents, with an integrated RAG/LLM assistant reached via
+              mobile app (VPN) and a LAN portal.</span
+            >
+          </div>
+          <div class="row">
+            <span class="k">Work</span><span class="v"
+              >Reviewed the security architecture end to end — advised against community-grade object storage and
+              self-built vector databases for sensitive data, and redesigned network segmentation to isolate storage and
+              admin interfaces from user-reachable zones and remove plaintext model traffic on lower-trust paths.</span
+            >
+          </div>
+          <div class="row">
+            <span class="k">Outcome</span><span class="v"
+              >A hardened design that keeps sensitive documents and the AI pipeline off user-accessible networks.</span
+            >
+          </div>
+          <div class="tags">
+            <span class="tag">Security Architecture</span><span class="tag">AI/LLM security</span><span class="tag"
+              >Network segmentation</span
+            >
+          </div>
+        </div>
+
+        <div class="case">
+          <h3><span class="idx">04</span> Malware RE &amp; incident response</h3>
+          <div class="row">
+            <span class="k">Situation</span><span class="v"
+              >Windows web servers infected with gambling-redirect malware; separately, a wave of Android banking
+              malware.</span
+            >
+          </div>
+          <div class="row">
+            <span class="k">Work</span><span class="v"
+              >Ran end-to-end IR — memory, traffic, registry, and event-log analysis to reconstruct the attack chain and
+              initial access — and reverse-engineered Android families (Flutter, React Native, Kotlin, Java) to recover
+              behavior and live C2.</span
+            >
+          </div>
+          <div class="row">
+            <span class="k">Outcome</span><span class="v"
+              >Attack vector identified, systems eradicated and cleaned, and IOCs + TTPs handed to defenders.</span
+            >
+          </div>
+          <div class="tags">
+            <span class="tag">DFIR</span><span class="tag">Malware RE</span><span class="tag">Android</span><span
+              class="tag">C2 analysis</span
+            >
+          </div>
+        </div>
+      </div>
+      <p class="disclaimer">
+        All work performed under written authorization and client NDA. Client details abstracted; sensitive indicators
+        withheld.
+      </p>
+    </section>
+
+    <section id="research">
+      <div class="eyebrow"><span class="n">// 03 ·</span> Research &amp; Tooling</div>
+      <h2>Work I can show in full.</h2>
+      <p class="section-intro">Self-directed research and tooling — no client attached, so I can go into depth.</p>
+      <div class="research">
+        <div class="ritem">
+          <div class="rt">Infostealer TI platform</div>
+          <div class="rd">
+            A graph-based threat-intelligence system (MSc thesis) that parses infostealer logs into a graph of
+            infections, devices, and credential exposure — turning raw stealer output into DFIR-ready intelligence.
+          </div>
+        </div>
+        <div class="ritem">
+          <div class="rt">Credential-exposure monitor</div>
+          <div class="rd">
+            A Python + Elasticsearch platform that watches Telegram channels and alerts on leaked credentials affecting
+            an organization's domains — early warning before the leaks are weaponized.
+          </div>
+        </div>
+        <div class="ritem">
+          <div class="rt">Applied ML security</div>
+          <div class="rd">
+            Research into adversarial machine learning for intrusion detection (GAN-augmented IDS, IDSGAN poisoning) and
+            federated learning for malware detection on IoT devices.
+          </div>
+        </div>
+        <div class="ritem">
+          <div class="rt">Offensive research</div>
+          <div class="rd">
+            Published technical write-ups on emerging techniques: MFA/SIM-swap and BGP hijacking, SS7-based location
+            tracing, and malware evasion (fileless, sandbox evasion).
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="credentials">
+      <div class="eyebrow"><span class="n">// 04 ·</span> Education &amp; Credentials</div>
+      <h2>Formally trained, broadly certified.</h2>
+      <p class="section-intro">
+        A foundation from two of Vietnam's most respected information-security programs, backed by offensive, defensive,
+        and governance certifications.
+      </p>
+      <div class="cases" style="margin-bottom:30px">
+        <div class="card">
+          <div style="font-family:var(--mono);color:var(--accent);font-size:12.5px;margin-bottom:10px">
+            2024 – present · in progress
+          </div>
+          <h3 style="font-size:17px;margin-bottom:5px">MSc, Information Security</h3>
+          <p style="color:var(--text);font-size:14.5px;margin:0 0 6px">Academy of Cryptography Techniques</p>
+          <p style="color:var(--muted);font-size:13.5px;margin:0">
+            Black Hat Asia 2025 Briefing Scholarship recipient · expected 2026
+          </p>
+        </div>
+        <div class="card">
+          <div style="font-family:var(--mono);color:var(--accent);font-size:12.5px;margin-bottom:10px">2019 – 2023</div>
+          <h3 style="font-size:17px;margin-bottom:5px">BSc, Information Security</h3>
+          <p style="color:var(--text);font-size:14.5px;margin:0 0 6px">
+            University of Information Technology (UIT) · VNU-HCM
+          </p>
+          <p style="color:var(--muted);font-size:13.5px;margin:0">GPA 8.08 / 10 · Excellence Student Award</p>
+        </div>
+      </div>
+      <div class="eyebrow" style="font-size:11.5px;margin-bottom:16px">Certifications</div>
+      <div class="creds">
+        <div class="cred">
+          <span class="cn">Certified Red Team Operator (CRTO)</span><span class="cy">Zero-Point · 2025</span>
+        </div>
+        <div class="cred">
+          <span class="cn">PECB ISO/IEC 27001 Auditor</span><span class="cy">PECB · 2025</span>
+        </div>
+        <div class="cred">
+          <span class="cn">OffSec Certified Professional (OSCP)</span><span class="cy">OffSec · 2024</span>
+        </div>
+        <div class="cred">
+          <span class="cn">Developer-Centric Threat Modelling</span><span class="cy">Sec Compass · 2024</span>
+        </div>
+        <div class="cred">
+          <span class="cn">Certified in Cybersecurity (CC)</span><span class="cy">ISC2 · 2024</span>
+        </div>
+        <div class="cred">
+          <span class="cn">MS-500 Security Administrator</span><span class="cy">Microsoft · 2022</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="eyebrow"><span class="n">// 05 ·</span> About</div>
+      <h2>Across the offensive/defensive divide.</h2>
+      <p>
+        I'm a security professional based in Ho Chi Minh City — an Offensive Security Team Lead and MSc candidate in
+        Information Security, and a recipient of the Black Hat Asia 2025 Briefing Scholarship. I work on both sides of
+        the line: attacking systems, investigating incidents, and helping teams get audit-ready. That range means an
+        assessment doesn't stop at a list of bugs — it connects to how you'd detect, respond to, and design against them.
+      </p>
+      <p>
+        I also teach and mentor — I hold a higher-education teaching qualification and have trained 100+ students and
+        junior engineers. It shows in the deliverable: findings explained clearly, prioritized by real risk, and written
+        for your team to act on.
+      </p>
+      <div class="approach">
+        <div class="eyebrow" style="color:var(--accent-2)">Approach &amp; ethics</div>
+        <p style="margin:0">
+          Every engagement is performed under written authorization and NDA, scoped to civilian systems, and reported
+          with discretion. I keep sensitive findings sensitive — client identities are abstracted in anything public,
+          and indicators are withheld. The focus is practical risk reduction: findings mapped to real business impact,
+          with remediation your team can actually act on.
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <section id="contact" class="contact" style="border-top:1px solid var(--border)">
+    <div class="wrap">
+      <div class="eyebrow" style="justify-content:center">// 06 · Contact</div>
+      <h2>Let's talk.</h2>
+      <p>
+        For authorized penetration testing, incident response, malware analysis, or ISO 27001 readiness. Engagements
+        begin with a scoping conversation and a signed authorization/NDA.
+      </p>
+      <a class="cta" href="mailto:phmngcthanh@gmail.com">phmngcthanh@gmail.com</a>
+    </div>
+  </section>
+</BaseLayout>
