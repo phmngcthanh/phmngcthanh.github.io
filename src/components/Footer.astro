@@ -1,6 +1,11 @@
+---
+interface Props { lang?: 'en' | 'vi'; }
+const { lang = 'en' } = Astro.props;
+---
+
 <footer>
   <div class="wrap">
-    © <span id="yr">2026</span> Thanh Pham · All engagements under written authorization
+    © <span id="yr">2026</span> Thanh Pham · {lang === 'vi' ? 'Mọi hoạt động đánh giá đều có ủy quyền bằng văn bản' : 'All engagements under written authorization'}
   </div>
 </footer>
 

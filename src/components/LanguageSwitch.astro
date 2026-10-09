@@ -1,0 +1,13 @@
+---
+interface Props {
+  lang: 'en' | 'vi';
+  englishPath: string;
+  vietnamesePath: string;
+}
+const { lang, englishPath, vietnamesePath } = Astro.props;
+---
+
+<nav class="language-switch" aria-label={lang === 'vi' ? 'Ngôn ngữ bài viết' : 'Article language'}>
+  <a href={englishPath} lang="en" hreflang="en" aria-current={lang === 'en' ? 'page' : undefined}>English</a>
+  <a href={vietnamesePath} lang="vi" hreflang="vi" aria-current={lang === 'vi' ? 'page' : undefined}>Tiếng Việt</a>
+</nav>

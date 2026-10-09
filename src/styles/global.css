@@ -477,6 +477,51 @@ footer {
   margin-bottom: 24px;
 }
 
+.writing-cards {
+  display: grid;
+  gap: 20px;
+}
+
+.article-navigation,
+.index-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 34px;
+}
+
+.article-navigation .back-link,
+.index-navigation .eyebrow {
+  margin-bottom: 0;
+}
+
+.language-switch {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.language-switch a {
+  padding: 6px 10px;
+  border-radius: 5px;
+  color: var(--muted);
+}
+
+.language-switch a[aria-current='page'] {
+  background: var(--panel-2);
+  color: var(--accent);
+}
+
+.language-switch a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
 .writing-card {
   display: block;
   background: var(--panel);

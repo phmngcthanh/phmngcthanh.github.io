@@ -1,5 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import LanguageSwitch from '../components/LanguageSwitch.astro';
 
 interface Props {
   frontmatter: {
@@ -9,27 +10,39 @@ interface Props {
     category: string;
     tags?: string[];
     draft?: boolean;
+    lang?: 'en' | 'vi';
   };
 }
 
 const { frontmatter } = Astro.props;
-const published = new Intl.DateTimeFormat('en', {
+const lang = frontmatter.lang ?? (Astro.url.pathname.startsWith('/vi/') ? 'vi' : 'en');
+const englishPath = Astro.url.pathname.replace(/^\/vi\//, '/');
+const vietnamesePath = `/vi${englishPath}`;
+const published = new Intl.DateTimeFormat(lang, {
   dateStyle: 'long',
   timeZone: 'UTC',
 }).format(new Date(`${frontmatter.published}T00:00:00Z`));
 ---
 
-<BaseLayout title={`${frontmatter.title} — Thanh Pham`} description={frontmatter.description}>
+<BaseLayout title={`${frontmatter.title} — Thanh Pham`} description={frontmatter.description} {lang}>
+  <Fragment slot="head">
+    <link rel="alternate" hreflang="en" href={new URL(englishPath, Astro.site)} />
+    <link rel="alternate" hreflang="vi" href={new URL(vietnamesePath, Astro.site)} />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+  </Fragment>
   <main class="wrap article-shell">
     <article class="article">
       <header class="article-header">
-        <a class="back-link" href="/writing/">← All writing</a>
+        <div class="article-navigation">
+          <a class="back-link" href={lang === 'vi' ? '/vi/writing/' : '/writing/'}>{lang === 'vi' ? '← Tất cả bài viết' : '← All writing'}</a>
+          <LanguageSwitch {lang} {englishPath} {vietnamesePath} />
+        </div>
         <div class="eyebrow">{frontmatter.category} · {published}</div>
         <h1>{frontmatter.title}</h1>
         <p class="article-description">{frontmatter.description}</p>
         {
           frontmatter.tags && (
-            <div class="tags" aria-label="Article tags">
+            <div class="tags" aria-label={lang === 'vi' ? 'Chủ đề bài viết' : 'Article tags'}>
               {frontmatter.tags.map((tag) => <span class="tag">{tag}</span>)}
             </div>
           )

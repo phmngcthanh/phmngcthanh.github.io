@@ -1,3 +1,6 @@
 node_modules/
 dist/
 .astro/
+
+# Research posts awaiting a confirmed disclosure record; kept outside Astro routes.
+private-drafts/

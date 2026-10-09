@@ -1,17 +1,19 @@
 ---
+interface Props { lang?: 'en' | 'vi'; }
+const { lang = 'en' } = Astro.props;
 const sectionHref = (id: string) => (Astro.url.pathname === '/' ? `#${id}` : `/#${id}`);
 ---
 
 <header class="nav">
   <div class="wrap">
     <span class="brand">thanh_pham<span class="dot">.</span>sec</span>
-    <nav class="links" aria-label="Primary navigation">
-      <a href={sectionHref('services')}>Services</a>{' '}
-      <a href={sectionHref('work')}>Work</a>{' '}
-      <a href={sectionHref('research')}>Research</a>{' '}
-      <a href="/writing/">Writing</a>{' '}
-      <a href={sectionHref('credentials')}>Credentials</a>{' '}
-      <a href={sectionHref('contact')}>Contact</a>
+    <nav class="links" aria-label={lang === 'vi' ? 'Điều hướng chính' : 'Primary navigation'}>
+      <a href={sectionHref('services')}>{lang === 'vi' ? 'Dịch vụ' : 'Services'}</a>{' '}
+      <a href={sectionHref('work')}>{lang === 'vi' ? 'Kinh nghiệm' : 'Work'}</a>{' '}
+      <a href={sectionHref('research')}>{lang === 'vi' ? 'Nghiên cứu' : 'Research'}</a>{' '}
+      <a href={lang === 'vi' ? '/vi/writing/' : '/writing/'}>{lang === 'vi' ? 'Bài viết' : 'Writing'}</a>{' '}
+      <a href={sectionHref('credentials')}>{lang === 'vi' ? 'Chứng chỉ' : 'Credentials'}</a>{' '}
+      <a href={sectionHref('contact')}>{lang === 'vi' ? 'Liên hệ' : 'Contact'}</a>
     </nav>
   </div>
 </header>
