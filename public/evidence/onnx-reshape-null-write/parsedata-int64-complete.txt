@@ -1,0 +1,194 @@
+# ONNX-006 review attachment: COMPLETE ParseData<int64> disassembly export (2026-09-13)
+# Source: IDA (idalib MCP) disasm, function
+#   ??$ParseData@_J@onnx@@YA?BV?$vector@_JV?$allocator@_J@std@@@std@@PEBVTensorProto@0@@Z
+#   VA 0x1806DDB64..0x1806DDE0A, imagebase 0x180000000, segment .text
+# Completeness: 179 addressed instructions, verbatim, no omissions (labels kept where present).
+# DLL: <research-root>\onnxruntime\bin\onnxruntime.dll
+# SHA256: d6e14879a5d697145c722a5e72bcfbffb4c187c5dcf0bf1d597cc060ba04bc72 (64 hex; runtime version string 1.17.1)
+# Matching runtime fault record: vr6-native-fault-2026-09-12.log (C0000005 WRITE to NULL,
+#   fault RVA 0x75DE7B in memmove; stack-top return onnxruntime+0x6DDCBF == the instruction
+#   after the memmove call at 0x1806DDCBA below).
+# Annotated highlights (see parsedata-int64-annotated-excerpt-2026-09-13.txt):
+#   defect window = 0x1806DDC80..0x1806DDCBA (raw_data branch):
+#   Size(2) -> shr rdx,3 (=0) -> vector resize(0) -> memmove(NULL, Src, 2).
+# Machine instructions follow; annotations in this file are limited to this header.
+
+1806ddb64  mov [rsp-8+arg_10], rbx            ; ??$ParseData@_J@onnx@@YA?BV?$vector@_JV?$allocator@_J@std@@@std@@PEBVTensorProto@0@@Z
+1806ddb69  push rbp
+1806ddb6a  push rsi
+1806ddb6b  push rdi
+1806ddb6c  lea rbp, [rsp-47h]
+1806ddb71  mov eax, 100h
+1806ddb76  call _alloca_probe
+1806ddb7b  sub rsp, rax
+1806ddb7e  mov rax, cs:__security_cookie
+1806ddb85  xor rax, rsp
+1806ddb88  mov [rbp+57h+var_20], rax
+1806ddb8c  mov rdi, rdx
+1806ddb8f  mov rsi, rcx
+1806ddb92  mov [rbp+57h+var_68], rcx
+1806ddb96  mov ecx, 1
+1806ddb9b  mov [rbp+57h+var_C8], ecx
+1806ddb9e  mov eax, [rdx+10h]
+1806ddba1  shr eax, 4
+1806ddba4  test cl, al
+1806ddba6  jz loc_1806DDCF3
+1806ddbac  mov eax, [rdx+0E0h]
+1806ddbb2  xor ebx, ebx
+1806ddbb4  test eax, eax
+1806ddbb6  jz loc_1806DDCF3
+1806ddbbc  cmp eax, 7
+1806ddbbf  jnz loc_1806DDD25
+1806ddbc5  xorps xmm0, xmm0
+1806ddbc8  movups xmmword ptr [rsi], xmm0
+1806ddbcb  mov [rsi], rbx
+1806ddbce  mov [rsi+8], rbx
+1806ddbd2  mov [rsi+10h], rbx
+1806ddbd6  mov [rbp+57h+var_C8], ecx
+1806ddbd9  mov edx, [rdx+10h]
+1806ddbdc  mov eax, edx
+1806ddbde  shr eax, 5
+1806ddbe1  test cl, al
+1806ddbe3  jz short loc_1806DDBF1
+1806ddbe5  cmp [rdi+0E4h], ecx
+1806ddbeb  jz loc_1806DDD88
+1806ddbf1  shr edx, 1                          ; loc_1806DDBF1
+1806ddbf3  test cl, dl
+1806ddbf5  jnz short loc_1806DDC62
+1806ddbf7  lea r8, [rdi+68h]
+1806ddbfb  mov [rbp+57h+var_CC], ecx
+1806ddbfe  movsxd rdx, dword ptr [rdi+18h]
+1806ddc02  test rdx, rdx
+1806ddc05  jle short loc_1806DDC1F
+1806ddc07  mov eax, ecx
+1806ddc09  mov r9, [rdi+20h]
+1806ddc0d  imul eax, [r9]                      ; loc_1806DDC0D
+1806ddc11  lea r9, [r9+8]
+1806ddc15  sub rdx, rcx
+1806ddc18  jnz short loc_1806DDC0D
+1806ddc1a  mov [rbp+57h+var_CC], eax
+1806ddc1d  mov ecx, eax
+1806ddc1f  cmp [rdi+18h], ebx                  ; loc_1806DDC1F
+1806ddc22  jz short loc_1806DDC2D
+1806ddc24  cmp [r8], ecx
+1806ddc27  jnz loc_1806DDDBC
+1806ddc2d  movsxd r9, dword ptr [r8]           ; loc_1806DDC2D
+1806ddc30  mov rdx, rbx
+1806ddc33  mov r8, [r8+8]
+1806ddc37  mov rcx, rsi
+1806ddc3a  call std::vector<__int64>::_Insert_counted_range<google::protobuf::internal::RepeatedIterator<__int64 const>>
+1806ddc3f  nop
+1806ddc40  mov rax, rsi                        ; loc_1806DDC40
+1806ddc43  mov rcx, [rbp+57h+var_20]
+1806ddc47  xor rcx, rsp                        ; StackCookie
+1806ddc4a  call __security_check_cookie
+1806ddc4f  mov rbx, [rsp+110h+arg_10]
+1806ddc57  add rsp, 100h
+1806ddc5e  pop rdi
+1806ddc5f  pop rsi
+1806ddc60  pop rbp
+1806ddc61  retn
+1806ddc62  cmp dword ptr [rdi+0E0h], 8         ; loc_1806DDC62
+1806ddc69  jz short loc_1806DDCC1
+1806ddc6b  mov rdx, [rdi+0C8h]
+1806ddc72  and rdx, 0FFFFFFFFFFFFFFFCh
+1806ddc76  lea rcx, [rbp+57h+Src]
+1806ddc7a  call std::string::string(std::string const &)
+1806ddc7f  nop
+1806ddc80  mov rdi, [rbp+57h+Size]
+1806ddc84  test rdi, rdi
+1806ddc87  jnz short loc_1806DDC94
+1806ddc89  lea rcx, [rbp+57h+Src]              ; loc_1806DDC89 ; void *
+1806ddc8d  call std::string::~string(void)
+1806ddc92  jmp short loc_1806DDC40
+1806ddc94  lea rbx, [rbp+57h+Src]              ; loc_1806DDC94
+1806ddc98  cmp [rbp+57h+var_28], 0Fh
+1806ddc9d  cmova rbx, [rbp+57h+Src]
+1806ddca2  mov rdx, rdi
+1806ddca5  shr rdx, 3
+1806ddca9  mov rcx, rsi
+1806ddcac  call std::vector<double>::resize(unsigned __int64)
+1806ddcb1  mov r8, rdi                         ; Size
+1806ddcb4  mov rdx, rbx                        ; Src
+1806ddcb7  mov rcx, [rsi]                      ; void *
+1806ddcba  call memmove
+1806ddcbf  jmp short loc_1806DDC89
+1806ddcc1  mov rcx, rdi                        ; loc_1806DDCC1
+1806ddcc4  call onnx::TensorProto::name(void)
+1806ddcc9  mov r8, rax
+1806ddccc  lea rcx, [rbp+57h+var_88]
+1806ddcd0  call onnx::MakeString<char [23],std::string,char [29],char [71],char [33]>
+1806ddcd5  nop
+1806ddcd6  mov rdx, rax
+1806ddcd9  lea rcx, [rbp+57h+pExceptionObject]
+1806ddcdd  call onnx::checker::ValidationError::ValidationError(std::string const &)
+1806ddce2  lea rdx, _TI3?AVInferenceError@onnx@@ ; pThrowInfo
+1806ddce9  lea rcx, [rbp+57h+pExceptionObject] ; pExceptionObject
+1806ddced  call _CxxThrowException
+1806ddcf3  mov rcx, rdi                        ; loc_1806DDCF3
+1806ddcf6  call onnx::TensorProto::name(void)
+1806ddcfb  mov r9, rax
+1806ddcfe  lea rcx, [rbp+57h+var_88]
+1806ddd02  call onnx::MakeString<char [23],char [21],std::string,char [38]>
+1806ddd07  nop
+1806ddd08  mov rdx, rax
+1806ddd0b  lea rcx, [rbp+57h+pExceptionObject]
+1806ddd0f  call onnx::checker::ValidationError::ValidationError(std::string const &)
+1806ddd14  lea rdx, _TI3?AVInferenceError@onnx@@ ; pThrowInfo
+1806ddd1b  lea rcx, [rbp+57h+pExceptionObject] ; pExceptionObject
+1806ddd1f  call _CxxThrowException
+1806ddd25  mov rcx, rdi                        ; loc_1806DDD25 ; this
+1806ddd28  call onnx::TensorProto::data_type(void)
+1806ddd2d  mov edx, eax
+1806ddd2f  lea rcx, [rbp+57h+Src]
+1806ddd33  call onnx::Utils::DataTypeUtils::ToDataTypeString(int)
+1806ddd38  mov rbx, rax
+1806ddd3b  mov edx, 7
+1806ddd40  lea rcx, [rbp+57h+var_60]
+1806ddd44  call onnx::Utils::DataTypeUtils::ToDataTypeString(int)
+1806ddd49  mov rdx, rax
+1806ddd4c  mov rcx, rdi
+1806ddd4f  call onnx::TensorProto::name(void)
+1806ddd54  mov [rsp+110h+var_D8], rbx
+1806ddd59  mov [rsp+110h+var_E8], rdx
+1806ddd5e  mov r9, rax
+1806ddd61  lea rcx, [rbp+57h+var_88]
+1806ddd65  call onnx::MakeString<char [23],char [37],std::string,char [12],std::string,char [9],std::string>
+1806ddd6a  nop
+1806ddd6b  mov rdx, rax
+1806ddd6e  lea rcx, [rbp+57h+pExceptionObject]
+1806ddd72  call onnx::checker::ValidationError::ValidationError(std::string const &)
+1806ddd77  lea rdx, _TI3?AVInferenceError@onnx@@ ; pThrowInfo
+1806ddd7e  lea rcx, [rbp+57h+pExceptionObject] ; pExceptionObject
+1806ddd82  call _CxxThrowException
+1806ddd88  mov rcx, rdi                        ; loc_1806DDD88
+1806ddd8b  call onnx::TensorProto::name(void)
+1806ddd90  mov [rsp+110h+var_F0], rax
+1806ddd95  lea rcx, [rbp+57h+var_88]
+1806ddd99  call onnx::MakeString<char [23],char [49],char [46],std::string>
+1806ddd9e  nop
+1806ddd9f  mov rdx, rax
+1806ddda2  lea rcx, [rbp+57h+pExceptionObject]
+1806ddda6  call onnx::checker::ValidationError::ValidationError(std::string const &)
+1806dddab  lea rdx, _TI3?AVInferenceError@onnx@@ ; pThrowInfo
+1806dddb2  lea rcx, [rbp+57h+pExceptionObject] ; pExceptionObject
+1806dddb6  call _CxxThrowException
+1806dddbc  mov rcx, r8                        ; loc_1806DDDBC
+1806dddbf  call OrtApis::GetErrorCode(OrtStatus const *)
+1806dddc4  mov [rbp+57h+var_C4], eax
+1806dddc7  mov rcx, rdi
+1806dddca  call onnx::TensorProto::name(void)
+1806dddcf  mov r9, rax
+1806dddd2  lea rax, [rbp+57h+var_C4]
+1806dddd6  mov [rsp+110h+var_D8], rax
+1806ddddb  lea rax, [rbp+57h+var_CC]
+1806ddddf  mov [rsp+110h+var_E8], rax
+1806ddde4  lea rcx, [rbp+57h+var_88]
+1806ddde8  call onnx::MakeString<char [23],char [29],std::string,char [16],int,char [32],int>
+1806ddded  nop
+1806dddee  mov rdx, rax
+1806dddf1  lea rcx, [rbp+57h+pExceptionObject]
+1806dddf5  call onnx::checker::ValidationError::ValidationError(std::string const &)
+1806dddfa  lea rdx, _TI3?AVInferenceError@onnx@@ ; pThrowInfo
+1806dde01  lea rcx, [rbp+57h+pExceptionObject] ; pExceptionObject
+1806dde05  call _CxxThrowException

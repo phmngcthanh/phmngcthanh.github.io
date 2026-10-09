@@ -1,0 +1,105 @@
+{
+  "case_title": "ONNX Runtime malformed Reshape initializer causes a native null-write fault",
+  "archive_case_ids": [
+    "VR-2026-006",
+    "ONNX-006"
+  ],
+  "publication_date": "2026-10-10",
+  "disposition": "Closed by MSRC: not a security vulnerability under Microsoft criteria and below the servicing threshold; no bounty, no CVE, no further MSRC tracking.",
+  "scope": "Historical evidence only. No model, library binary, or executable reproduction harness is distributed in this pack. No retesting was performed for publication.",
+  "transformation": "The original absolute local research-directory prefix was replaced with <research-root>. All other text, including historical comments, native exception values, addresses and instructions, was retained. Filenames were changed as mapped below; files are UTF-8 without BOM.",
+  "hash_note": "Original source SHA-256 hashes identify the archived files before redaction. They do not equal the published sanitized-file hashes. Published SHA-256 hashes identify the downloadable files.",
+  "dll_identity": {
+    "filename": "onnxruntime.dll",
+    "sha256": "d6e14879a5d697145c722a5e72bcfbffb4c187c5dcf0bf1d597cc060ba04bc72",
+    "bytes": 10573608,
+    "recorded_runtime_version": "1.17.1",
+    "acquisition_build_reported_in_submission": "Windows Insider Dev 10.0.29648.1000",
+    "qualification": "Acquisition build is not the harness host OS. A version string does not establish an upstream affected range. DLL is not included."
+  },
+  "model_identity": {
+    "filename": "reshape-short-notranspose.onnx",
+    "sha256": "8f1e2ef341ac96c49137aeae46b9359639f38c0670d9442f9993686b213b7484",
+    "bytes": 108,
+    "qualification": "Hash and size identify the archived malformed model. Model is not included."
+  },
+  "host_environment": {
+    "established": "x64 Windows; Python with ctypes; exact DLL/model identified in native logs",
+    "not_established": "The supplied ONNX-006 native captures do not record an exact host Windows build or Python version."
+  },
+  "limitations": [
+    "Native stack entries were found by a raw stack scan, not a complete unwound stack.",
+    "The stdout files show ctypes converting the native fault to an OSError that escapes the harness. Universal process termination is not established.",
+    "Original controls and the 5/5 claim are historical research-note assertions; this pack contains two native captures, not five.",
+    "The valid int64_data control in the original harness also included Transpose; it was not a single-variable graph comparison.",
+    "The evidence does not establish arbitrary write, code execution, privilege escalation, or a security boundary crossing.",
+    "MSRC final disposition supersedes the original report classification; an engineering-awareness referral is not acceptance of a security finding."
+  ],
+  "files": [
+    {
+      "original_filename": "run1.log",
+      "original_archive_path": "onnxruntime/evidence/VR-2026-006/run1.log",
+      "original_bytes": 1518,
+      "original_sha256": "a58ad833d68149c79d750096616fd12464dd95bbf6f234f2f42e6e5aba52a6fe",
+      "published_filename": "native-run-1.txt",
+      "published_bytes": 1509,
+      "published_sha256": "82cd416158dd7511ca47566593321257441648a873e1b09cd05805f226fcab0b"
+    },
+    {
+      "original_filename": "vr6-native-fault-2026-09-12.log",
+      "original_archive_path": "onnxruntime/evidence/VR-2026-006/vr6-native-fault-2026-09-12.log",
+      "original_bytes": 1519,
+      "original_sha256": "31f0debf572f46ae8e9cd6f60abc89204f879c5b11c396a93968be01d2920da1",
+      "published_filename": "native-run-2.txt",
+      "published_bytes": 1510,
+      "published_sha256": "1e5f0ae2b1bb60da2dc70f87d241f17b467fe1676fe8546b4be4df6e23f86d7b"
+    },
+    {
+      "original_filename": "stdout.txt",
+      "original_archive_path": "onnxruntime/evidence/VR-2026-006/stdout.txt",
+      "original_bytes": 647,
+      "original_sha256": "c3f9b8c2f0a637c3cc760988af90cfdd2ce668071d63e00f71681333c5eeb709",
+      "published_filename": "harness-output-1.txt",
+      "published_bytes": 641,
+      "published_sha256": "1888ff4be51ea9898f13b40c3a2f72cb649a6dfcb5496eef3d4c9bc0af14ef59"
+    },
+    {
+      "original_filename": "stdout2.txt",
+      "original_archive_path": "onnxruntime/evidence/VR-2026-006/stdout2.txt",
+      "original_bytes": 647,
+      "original_sha256": "c3f9b8c2f0a637c3cc760988af90cfdd2ce668071d63e00f71681333c5eeb709",
+      "published_filename": "harness-output-2.txt",
+      "published_bytes": 641,
+      "published_sha256": "1888ff4be51ea9898f13b40c3a2f72cb649a6dfcb5496eef3d4c9bc0af14ef59"
+    },
+    {
+      "original_filename": "parsedata-int64-complete-export-2026-09-13.txt",
+      "original_archive_path": "onnxruntime/evidence/VR-2026-006/parsedata-int64-complete-export-2026-09-13.txt",
+      "original_bytes": 8305,
+      "original_sha256": "793641a75760cf5a12193c1f8ac2213642e2e2b5baf28d9bc863ff5e8329de79",
+      "published_filename": "parsedata-int64-complete.txt",
+      "published_bytes": 8302,
+      "published_sha256": "d69ebc3702de82ceb4859bb25878663fa25cda5b091f5fc773857a6a70db4611"
+    }
+  ],
+  "publication_files": [
+    {
+      "published_filename": "README.en.txt",
+      "published_bytes": 3835,
+      "published_sha256": "79eb5e36fadaaa9502f3b4abf3054b9a3c21583df204b0a58887854cafa2f0bd",
+      "provenance": "Editorial evidence guide prepared for this publication."
+    },
+    {
+      "published_filename": "README.vi.txt",
+      "published_bytes": 4919,
+      "published_sha256": "3a19ab6b834cb34ba83696fe5537b7d442638a0a46e885b8a0810cf18a2cb435",
+      "provenance": "Editorial evidence guide prepared for this publication."
+    },
+    {
+      "published_filename": "msrc-final-response.txt",
+      "published_bytes": 2249,
+      "published_sha256": "f22ff06565c8aad71b78c2a7fd59459150f160f9d299feccebbe443e77fb6b85",
+      "provenance": "Researcher-supplied final response, transcribed for publication; see file header for provenance and formatting normalization."
+    }
+  ]
+}

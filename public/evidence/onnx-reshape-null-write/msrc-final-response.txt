@@ -1,0 +1,27 @@
+ONNX-006 — final MSRC response supplied by the reporting researcher
+
+Publication provenance:
+Transcribed from the final response provided by the researcher for this article
+on 2026-10-10. This is not a publicly hosted Microsoft advisory. The supplied text
+does not specify the original response date, MSRC case number, assessed version,
+fixing commit, or first fixed release. Markdown escaping of raw_data was normalized;
+the response wording below is otherwise preserved. No new technical review or
+runtime test was performed for this publication.
+
+BEGIN SUPPLIED RESPONSE
+
+Thank you for your report and for working with the Microsoft Security Response Center (MSRC). We appreciate the time and effort you took to help protect Microsoft and our customers.
+
+After careful review, this case does not meet Microsoft's definition of a security vulnerability and is below threshold for servicing.
+
+The reported malformed ONNX Reshape model handling is addressed in the assessed version through validation of the initializer's raw_data byte length before copying. The assessed impact is limited to a recoverable process crash when an application loads an attacker-supplied model, without a security boundary crossing, and does not meet the criteria for action.
+
+We appreciate the details provided in your report. The information has been shared with the responsible engineering team for awareness and internal review.
+
+MSRC prioritizes vulnerabilities assessed as Important or Critical severity. Based on the current assessment, this case is not eligible for bounty, no CVE will be issued, and MSRC will not track the issue further.
+
+If new technical information becomes available that demonstrates a higher security impact than what was reviewed, it may be submitted as a new report and will be reassessed on its merits.
+
+Each report is evaluated against Microsoft's published security servicing criteria. The review considers whether the reported behavior meets the definition of a security vulnerability and how it aligns with the severity classification for the affected product or service. Severity assessment considers factors such as impact, attack vector, required privileges, user interaction, and existing mitigations.
+
+END SUPPLIED RESPONSE

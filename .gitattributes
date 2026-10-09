@@ -1,0 +1,2 @@
+# Preserve evidence bytes so published SHA-256 hashes survive Windows/Linux checkouts.
+/public/evidence/onnx-reshape-null-write/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

@@ -1,0 +1,6 @@
+<research-root>\onnxruntime\evidence\VR-2026-006\vr6_native_capture.py:25: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  w(f"=== VR-2026-006 native capture {datetime.datetime.utcnow().isoformat()}Z")
+Traceback (most recent call last):
+  File "<research-root>\onnxruntime\evidence\VR-2026-006\vr6_native_capture.py", line 150, in <module>
+    r3 = CreateSessP(env, os.path.abspath(MODEL), so, ctypes.byref(sess))
+OSError: exception: access violation writing 0x0000000000000000

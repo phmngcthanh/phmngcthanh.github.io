@@ -1,0 +1,31 @@
+=== VR-2026-006 native capture 2026-09-12T15:27:38.989921Z
+python pid=6644
+DLL=<research-root>\onnxruntime\bin\onnxruntime.dll
+DLL sha256=d6e14879a5d697145c722a5e72bcfbffb4c187c5dcf0bf1d597cc060ba04bc72
+MODEL=<research-root>\onnxruntime\evidence\VR-2026-005\reshape-short-notranspose.onnx
+MODEL sha256=8f1e2ef341ac96c49137aeae46b9359639f38c0670d9442f9993686b213b7484
+onnxruntime base=0x7FFE50660000 size=0xA06000 end=0x7FFE51066000
+VEH registered handle=0x1480DEE1B70
+runtime version = b'1.17.1'
+CreateEnv=None CreateSO=None
+creating session from <research-root>\onnxruntime\evidence\VR-2026-005\reshape-short-notranspose.onnx ...
+--- VEH hit code=0xC0000005 addr=0x00007FFE50DBDE7B nparams=2
+    param[0]=0x0000000000000001
+    param[1]=0x0000000000000000
+    fault RVA (onnxruntime+0x75DE7B)
+    RIP=0x00007FFE50DBDE7B RSP=0x000000263E0DC628
+    RIP RVA onnxruntime+0x75DE7B
+    stack[RSP+0x0] = onnxruntime+0x6DDCBF
+    stack[RSP+0x40] = onnxruntime+0x433A6
+    stack[RSP+0x90] = onnxruntime+0x5BCBF2
+    stack[RSP+0xD0] = onnxruntime+0x5BCC33
+    stack[RSP+0x100] = onnxruntime+0x6DDB7B
+    stack[RSP+0x120] = onnxruntime+0x6A08BD
+    stack[RSP+0x130] = onnxruntime+0x5CF8FE
+    stack[RSP+0x160] = onnxruntime+0x49F70
+    stack[RSP+0x180] = onnxruntime+0x0
+    stack[RSP+0x190] = onnxruntime+0x5CF7E5
+    stack[RSP+0x1B0] = onnxruntime+0x5C92BD
+    stack[RSP+0x1D8] = onnxruntime+0x7F5700
+    stack[RSP+0x220] = onnxruntime+0x5B8ECD
+--- VEH done (EXCEPTION_CONTINUE_SEARCH)
